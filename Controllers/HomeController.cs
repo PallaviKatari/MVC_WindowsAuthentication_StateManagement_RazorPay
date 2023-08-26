@@ -12,10 +12,10 @@ namespace MVC_WindowsAuthentication.Controllers
         // GET: Home
         [Authorize(Users = @"CGVAK-LT156\cgvak-lt156")]
         public ActionResult Index()
-        { 
+        {
 
             return View();
-            
+
         }
         [Authorize(Users = @"CGVAK-LT156\admin")]
         public ActionResult About()
@@ -27,23 +27,7 @@ namespace MVC_WindowsAuthentication.Controllers
         {
             return View();
         }
-        //Cookies
-        public string Cookies()
-        {
-            // Create the cookie object.
-            HttpCookie cookie = new HttpCookie("MVC");
-            cookie["cookie"] = "MVCCookie";
-            // This cookie will remain  for one month.
-            cookie.Expires = DateTime.Now.AddMonths(1);
 
-            // Add it to the current web response.
-            Response.Cookies.Add(cookie);
-            HttpCookie cookieObj = Request.Cookies["MVC"];
-            string cookiename = cookieObj["cookie"];
-            return cookiename;
-        }
-
-        
         public ActionResult login()
         {
             // this is a custome object holding user data

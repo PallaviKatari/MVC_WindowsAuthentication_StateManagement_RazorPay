@@ -1,0 +1,12 @@
+﻿@{
+    Layout = null;
+}
+
+<h2>GetDate</h2>
+<div>
+    <h3>
+        The Current time :
+        @DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss")
+    </h3>
+</div>
+@Html.Action("Index", new { names = new List<string>() { "Peter", "Paul", "John" } })

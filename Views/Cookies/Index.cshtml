@@ -1,0 +1,24 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+@using (Html.BeginForm(null, "Home", FormMethod.Post))
+{
+    <span>Name: </span>
+    <input type="text" id="txtName" name="name" />
+    <br />
+    <br />
+    <input type="submit" id="btnWrite" formaction="@Url.Action("WriteCookie")" value="Write Cookie" />
+    <input type="submit" id="btnRead" formaction="@Url.Action("ReadCookie")" value="Read Cookie" />
+    <input type="submit" id="btnDelete" formaction="@Url.Action("DeleteCookie")" value="Remove Cookie" />
+}
+@if (TempData["Message"] != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                alert('@TempData["Message"]');
+            };
+    </script>
+}
