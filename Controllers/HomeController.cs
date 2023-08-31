@@ -30,7 +30,7 @@ namespace MVC_WindowsAuthentication.Controllers
 
         public ActionResult login()
         {
-            // this is a custome object holding user data
+            // this is a custom object holding user data
             Session["userInfo"] = "I am a Session";
             return View();
         }

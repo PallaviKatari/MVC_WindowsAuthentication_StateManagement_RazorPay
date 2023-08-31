@@ -12,7 +12,7 @@ namespace MVC_WindowsAuthentication.Controllers
     /// Cookies is a small piece of information stored on the client machine. 
     /// This file is located on client machines "C:\Document and Settings\Currently_Login user\Cookie" path. 
     /// Its is used to store user preference information like Username, Password,City and PhoneNo etc on client machines. 
-    /// We need to import namespace called  Systen.Web.HttpCookie before we use cookie.
+    /// We need to import namespace called  System.Web.HttpCookie before we use cookie.
     /// Type of Cookies
     /// Persist Cookie - A cookie which has no expiry time is called as Persistant Cookie
     /// Non-Persist Cookie - A cookie which has expiry time is called as Non-Persistant Cookie
@@ -28,13 +28,13 @@ namespace MVC_WindowsAuthentication.Controllers
         public ActionResult WriteCookie()
         {
             //Create a Cookie with a suitable Key.
-            HttpCookie nameCookie = new HttpCookie("Name");
+            HttpCookie nameCookie = new HttpCookie("Name"); //John
 
             //Set the Cookie value.
-            nameCookie.Values["Name"] = Request.Form["name"];
+            nameCookie.Values["Name"] = Request.Form["name"]; //TextBox - name - info - John
 
             //Set the Expiry date.
-            nameCookie.Expires = DateTime.Now.AddSeconds(10);
+            nameCookie.Expires = DateTime.Now.AddSeconds(20);
 
             //Add the Cookie to Browser.
             Response.Cookies.Add(nameCookie);
@@ -49,9 +49,9 @@ namespace MVC_WindowsAuthentication.Controllers
             HttpCookie nameCookie = Request.Cookies["Name"];
 
             //If Cookie exists fetch its value.
-            string name = nameCookie != null ? nameCookie.Value.Split('=')[1] : "undefined";
+            string name = nameCookie != null ? nameCookie.Value : "undefined";
 
-            TempData["Message"] = name;
+            TempData["Message"] = name; //John
 
             return RedirectToAction("Index");
         }

@@ -25,8 +25,8 @@ namespace MVC_WindowsAuthentication.Controllers
             return View();
         }
 
-        [OutputCache(Duration = 60)]
-        //[OutputCache(CacheProfile = "Cache10Min")] - Configure in web.config
+        //[OutputCache(Duration = 60)]
+        [OutputCache(CacheProfile = "Cache10Min")] // Configure in web.config
         //Refer - Batch35 - EmployeeController - Index - OutputCache Demo
         public ActionResult Index(List<String> names)
         {

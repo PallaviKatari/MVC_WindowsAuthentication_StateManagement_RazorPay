@@ -28,6 +28,18 @@ namespace MVC_WindowsAuthentication.Controllers
             return View();
         }
 
+        public class OrderModel
+        {
+            public string orderId { get; set; }
+            public string razorpayKey { get; set; }
+            public int amount { get; set; }
+            public string currency { get; set; }
+            public string name { get; set; }
+            public string email { get; set; }
+            public string contactNumber { get; set; }
+            public string address { get; set; }
+            public string description { get; set; }
+        }
 
         [HttpPost]
         public ActionResult CreateOrder(PaymentInitiateModel _requestData)
@@ -64,18 +76,7 @@ namespace MVC_WindowsAuthentication.Controllers
             return View("Complete", orderModel);
         }
 
-        public class OrderModel
-        {
-            public string orderId { get; set; }
-            public string razorpayKey { get; set; }
-            public int amount { get; set; }
-            public string currency { get; set; }
-            public string name { get; set; }
-            public string email { get; set; }
-            public string contactNumber { get; set; }
-            public string address { get; set; }
-            public string description { get; set; }
-        }
+       
 
 
         [HttpPost]
